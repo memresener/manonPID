@@ -3,7 +3,7 @@ library(ggplot2)
 library(plotly)
 
 smooth_a<-0.001
-filename="PID_120422_lab435_dev4A"
+filename="PID_120422_lab435_dev6B"
 
 manon1<-read.csv(paste0("C:/Users/memre/Documents/Easter break raw data/",filename,".txt"))
 
@@ -25,9 +25,9 @@ gp<-ggplot(pid,aes(x=date,y=volt,group = NA))+
        x="Time",
        title="PID Output Voltage over Time")
 
-A4<-ggplotly(gp, tooltip="text")
+B6<-ggplotly(gp, tooltip="text")
 text_2 <-  paste0("Time:" , format(as.POSIXct(w$x$data[[1]]$x,origin="1970-01-01"),format="%H:%M"), "<br />", "Voltage: ", format(round(w$x$data[[1]]$y,4),nsmall=4))
-A4 %>% 
+B6 %>% 
   style(text = text_2, traces = 1)%>%
   style(hoverinfo = 'none',traces = c(2))%>%
   layout(title = list(text = paste0('PID Output Voltage over Time',
